@@ -57,14 +57,19 @@ public class Account {
 	        this.balance = this.balance + amt;
 	    }
 	    
-	    public double withdraw(double amt) throws Zerobalace 
+	    public double withdraw(double amt) throws Zerobalace ,Insuffi
 	    {
 	        if(amt <= this.balance )
 	        {
 	            this.balance = this.balance - amt;
 	            System.out.println("Current Balance is "+ this.balance+" after withdrawing amt: "+amt);
 	        }
-	     
+	        else if(amt >= this.balance && this.balance != 0.0)
+	        {
+	            //System.out.println("Insufficient Balance: amt:"+amt+" is greater than your balance:"+this.balance);
+	           System.err.println("Insufficent balance "+this.balance);
+	           throw new Insuffi(this.balance,amt,this.acctNo);
+	        }	     
 	        else {
 	        	
 	        	throw new Zerobalace (this.balance, amt,this.acctNo);
