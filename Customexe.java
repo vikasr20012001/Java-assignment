@@ -22,7 +22,12 @@ public class Customexe {
             {
             amt = ob.withdraw(amt);
             }
-            catch(Zerobalace e)
+            catch(Zerobalace  e)
+            {
+                System.out.println(e);
+                break;
+            }
+            catch(Insuffi  e)
             {
                 System.out.println(e);
                 break;
